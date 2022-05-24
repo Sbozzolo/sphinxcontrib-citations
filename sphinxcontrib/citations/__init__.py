@@ -10,8 +10,11 @@ from sphinxcontrib.citations.core import write_citing_bibtex
 def add_bibfile_to_sphinxcontrib_bibtex(app: Sphinx, config: Config):
     if not "sphinxcontrib.bibtex" in config["extensions"]:
         raise RuntimeError("sphinxcontrib-citations requires sphinxcontrib.bibtex")
-    else:
+
+    if config["bibtex_bibfiles"] is not None:
         config["bibtex_bibfiles"].append(config["citations_bibtex_file"])
+    else:
+        config["bibtex_bibfiles"] = [config["citations_bibtex_file"]]
 
 
 def produce_bibtex(app: Sphinx, config: Config):
