@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sphinxcontrib-citations"
+version = "0.1.0"
+description = "Create a list with all the papers that cite yours"
+authors = ["Gabriele Bozzola <sbozzolator@gmail.com>"]
+packages = [ {include = "sphinxcontrib", from = "."} ]
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+requests = "^2.0"
+Sphinx = "^4.0"
+sphinxcontrib-bibtex = "^2.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
