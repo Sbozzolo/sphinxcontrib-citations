@@ -1,4 +1,5 @@
 # sphinxcontrib-citations
+[![PyPI version](https://badge.fury.io/py/sphinxcontrib-citations.svg)](https://badge.fury.io/py/sphinxcontrib-citations)
 
 It is often the case that open-source software enables new scientific
 developments. When this happens, it is desirable to highlight which new results
