@@ -14,8 +14,8 @@ currently in a state of minimum-viable-product: the basic features are
 available, but not much else. Pull request are welcome.
 
 To use `sphinxcontrib-citations`, first install it and add it to the
-`extensions` variable in your `conf.py`. `sphinxcontrib-citations` has only
-three options:
+`extensions` variable in your `conf.py` as `sphinxcontrib.citations`.
+`sphinxcontrib-citations` has only three options:
 
 - `citations_ads_token`: this is the ADS API token, and it required for the
   correct functioning of the extension.
