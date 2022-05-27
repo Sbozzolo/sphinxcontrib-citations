@@ -40,3 +40,7 @@ Papers citing this software
 
 Make sure that the name of the file matches your choice for
 `citations_bibtex_file`.
+
+### Example
+
+For an example, see [kuibit](https://sbozzolo.github.io/kuibit/dev/citations.html).
