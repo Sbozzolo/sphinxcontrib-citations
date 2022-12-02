@@ -1,5 +1,6 @@
 # sphinxcontrib-citations
 [![PyPI version](https://badge.fury.io/py/sphinxcontrib-citations.svg)](https://badge.fury.io/py/sphinxcontrib-citations)
+[![Test](https://github.com/Sbozzolo/sphinxcontrib-citations/actions/workflows/test.yml/badge.svg)](https://github.com/Sbozzolo/sphinxcontrib-citations/actions/workflows/test.yml)
 
 It is often the case that open-source software enables new scientific
 developments. When this happens, it is desirable to highlight which new results
@@ -24,7 +25,8 @@ To use `sphinxcontrib-citations`, first install it and add it to the
 - `citations_bibcode_list`: this is the list of bibcodes for which citations
   have to be found. You can find the bibcode for a given paper on ADS.
 - `citations_bibtex_file`: this is the name of the `.bib` file that will be
-  generated. If not specified, it will be `sphinxcontrib_citations.bib`.
+  generated. If not specified, it will be `sphinxcontrib_citations.bib`. If a
+  file with the given path already exists, it will be silently overwritten.
 
 When you compile your documentation, `sphinxcontrib-citations` will find all the
 references and create a `bib` file. Then, `sphinxcontrib-citations` interfaces

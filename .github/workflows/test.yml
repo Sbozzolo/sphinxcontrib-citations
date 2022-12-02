@@ -1,0 +1,56 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+
+  Test:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: [ '3.7', '3.11' ]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Load cached Poetry virtualenv
+        uses: actions/cache@v3
+        id: cached-poetry-dependencies
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install Dependencies
+        run: |
+          poetry install
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+
+      - name: Black
+        continue-on-error: true
+        run: poetry run black -l 79 . --check
+
+      - name: Isort
+        continue-on-error: true
+        run: poetry run isort --profile black --check sphinxcontrib
+
+      - name: Flake8
+        continue-on-error: true
+        run: poetry run flake8 --ignore=E501 sphinxcontrib
+
+      - name: Tests
+        env:
+            ADS_API: ${{ secrets.ADS_API }}
+        run: poetry run python -m pytest
