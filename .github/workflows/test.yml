@@ -42,6 +42,10 @@ jobs:
         continue-on-error: true
         run: poetry run black -l 79 . --check
 
+      - name: Mypy
+        continue-on-error: true
+        run: poetry run mypy sphinxcontrib
+
       - name: Isort
         continue-on-error: true
         run: poetry run isort --profile black --check sphinxcontrib
